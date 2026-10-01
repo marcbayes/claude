@@ -134,7 +134,7 @@ function Invoke-Startup {
   if (-not (Test-Path $startupDir)) { return }
   Get-ChildItem -Path $startupDir -Filter '*.bat' | ForEach-Object {
     Write-Host " Running startup step: $($_.Name)" -ForegroundColor DarkGray
-    & cmd.exe /c "`"$($_.FullName)`""
+    & $_.FullName
   }
 }
 
